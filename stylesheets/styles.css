@@ -1,14 +1,13 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:300italic,700italic,300,700);
 
 body {
-  padding:50px;
   font:14px/1.5 Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
   color:#777;
   font-weight:300;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color:#222;
+  color:#FFCC66;
   margin:0 0 20px;
 }
 
@@ -45,10 +44,6 @@ a small {
   display:block;
 }
 
-.wrapper {
-  width:860px;
-  margin:0 auto;
-}
 
 blockquote {
   border-left:1px solid #e5e5e5;
@@ -217,7 +212,7 @@ footer {
     top:52px;
   }
 }
-
+/*
 @media print, screen and (max-width: 720px) {
   body {
     word-wrap:break-word;
@@ -252,4 +247,4 @@ footer {
     font-size:12pt;
     color:#444;
   }
-}
+} */
