@@ -6,8 +6,9 @@
 
   :source-paths ["src/clj" "src/cljs"]
 
-  :dependencies [[org.clojure/clojure "1.6.0"]
+  :dependencies [[org.clojure/clojure "1.7.0-alpha1"]
                  [org.clojure/clojurescript "0.0-2371" :scope "provided"]
+                 [org.clojure/core.async "0.1.346.0-17112a-alpha"]
                  [ring "1.3.1"]
                  [compojure "1.2.0"]
                  [enlive "1.1.5"]
@@ -28,7 +29,7 @@
   :cljsbuild {:builds {:app {:source-paths ["src/cljs"]
                              :compiler {:output-to     "resources/public/js/app.js"
                                         :output-dir    "resources/public/js/out"
-                                        :source-map    "resources/public/js/out.js.map"
+                                        :source-map    "resources/public/js/app.js.map"
                                         :preamble      ["react/react.min.js"]
                                         :externs       ["react/externs/react.js"]
                                         :optimizations :none
