@@ -2,6 +2,8 @@
 
 Messing around with clojurescript, om, chestnut, canvas, physics.
 
+See it live [here](http://trev0r.github.io/planet-crash/)
+
 Inspired by [Super Planet Crash](http://www.stefanom.org/spc/)
 
 ## Development
