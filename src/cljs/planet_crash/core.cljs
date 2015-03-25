@@ -10,10 +10,18 @@
 
 (defonce colors ["#F97A77" "#6699CC" "#99CC99" "#F99157" "#66CCCC" "#CC99CC" "#D27B53" "#A0A093" "#F2F0EC" "#00FFFF" "#E8E6DF"])
 
+(defonce preset-sizes [{:mass 1     :radius 15  :title "Earth"}
+                       {:mass 5     :radius 20  :title "Super-Earth"}
+                       {:mass 15    :radius 25  :title "Ice giant"}
+                       {:mass 300   :radius 40  :title "Giant planet"}
+                       {:mass 5000  :radius 60  :title "Brown dwarf"}
+                       {:mass 30000 :radius 100 :title "Dwarf starf"}])
+
 (defonce app-state (atom {
                           :width 1280
                           :height 700
                           :running? true
+                          :selected-planet (first preset-sizes)
                           :planets [
                                 ;sun
                                 {:position [640 350]
@@ -236,6 +244,22 @@
                  )
                ))))
 
+(defn planet-selecter [selected-planet owner]
+  (reify
+    om/IRender
+    (render [_]
+      (apply dom/ul nil
+             (for [p preset-sizes]
+               (dom/li nil
+                 (dom/a #js {:onClick #(om/transact! selected-planet
+                                                          (fn [_] p))}
+
+                        (:title p)
+                        (str (:mass p)  "x")
+                        ))))
+
+      )))
+
 
 (defn main []
   "Wire everything, create all necessary channels, pretty much anything interesting happens here.
@@ -269,11 +293,12 @@
                  ; Add a new planet when we get a click on the canvas.
                  clicks (let [sun (first (:planets @app)) ;gross
                               color-index (mod (count (:planets @app)) (count colors))
+                              {:keys [mass radius]} (:selected-planet @app)
                               initial-velocity (orbital-velocity val (:position sun) (:mass sun))
                               new-planet {:position val
                                           :velocity initial-velocity
-                                          :radius 10
-                                          :mass 1
+                                          :radius radius
+                                          :mass mass
                                           :color (nth colors color-index)
                                           :editable? (not (:running? @app))
                                           }
@@ -299,6 +324,12 @@
                                      :width (app :width)
                                      :height (app :height)
                                      :ref "universe-ref"})
+
+                    (om/build planet-selecter (:selected-planet app))
+                    ;(dom/button #js {:onClick (fn [_]
+                    ;                            (do
+                    ;                              (om/transact! app :selected-mass #(mod (+ % 100) 400))))}
+                    ;                 (str (nth preset-sizes (:selected-preset app))))
                     (dom/div nil
                              (dom/label nil "Click to add a planet ")
                              (dom/button #js {:onClick (fn [_]
@@ -315,10 +346,10 @@
                                                            (om/transact! app :planets (fn [ps] (into [] (map #(assoc % :editable? false) ps)))
                                                                          )))
                                               } "Play"))
-                    (dom/div nil
+                    (comment (dom/div nil
                              (apply dom/div nil
                                     (om/build-all planet-editor (:planets app))
-                             ))
+                             )))
                   )
            )
          )
