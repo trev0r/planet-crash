@@ -10,10 +10,18 @@
 
 (defonce colors ["#F97A77" "#6699CC" "#99CC99" "#F99157" "#66CCCC" "#CC99CC" "#D27B53" "#A0A093" "#F2F0EC" "#00FFFF" "#E8E6DF"])
 
+(defonce preset-sizes [{:mass 1     :radius 15  :title "Earth"}
+                       {:mass 5     :radius 20  :title "Super-Earth"}
+                       {:mass 15    :radius 25  :title "Ice giant"}
+                       {:mass 300   :radius 40  :title "Giant planet"}
+                       {:mass 5000  :radius 60  :title "Brown dwarf"}
+                       {:mass 30000 :radius 100 :title "Dwarf starf"}])
+
 (defonce app-state (atom {
                           :width 1280
                           :height 700
                           :running? true
+                          :selected-planet (first preset-sizes)
                           :planets [
                                 ;sun
                                 {:position [640 350]
@@ -236,6 +244,27 @@
                  )
                ))))
 
+(defn mass-selecter [selected-mass owner]
+  (reify
+    om/IRender
+    (render [_]
+      (dom/div #js {:id "mass-selecter"}
+               (apply dom/ul #js {:id "masses"
+                                  :className "nav nav-pills nav-stacked"}
+                      (for [p preset-sizes]
+                        (dom/li #js {:className (if (= p selected-mass) "active" nil)}
+                                (dom/a #js {:href "#"
+                                            :className "mass-sel"
+                                            :onClick #(om/transact! selected-mass
+                                                                    (fn [_] p))}
+
+                                       (:title p)
+                                       (dom/span #js {:className "badge pull-right"}
+                                                 (str (:mass p)  "x"))
+                                       ))))
+
+      ))))
+
 
 (defn main []
   "Wire everything, create all necessary channels, pretty much anything interesting happens here.
@@ -269,11 +298,12 @@
                  ; Add a new planet when we get a click on the canvas.
                  clicks (let [sun (first (:planets @app)) ;gross
                               color-index (mod (count (:planets @app)) (count colors))
+                              {:keys [mass radius]} (:selected-planet @app)
                               initial-velocity (orbital-velocity val (:position sun) (:mass sun))
                               new-planet {:position val
                                           :velocity initial-velocity
-                                          :radius 10
-                                          :mass 1
+                                          :radius radius
+                                          :mass mass
                                           :color (nth colors color-index)
                                           :editable? (not (:running? @app))
                                           }
@@ -299,26 +329,26 @@
                                      :width (app :width)
                                      :height (app :height)
                                      :ref "universe-ref"})
-                    (dom/div nil
-                             (dom/label nil "Click to add a planet ")
-                             (dom/button #js {:onClick (fn [_]
-                                                         (do
-                                                           (put! stop true)
-                                                           (om/update! app :running? false)
-                                                           (om/transact! app :planets (fn [ps] (into [] (map #(assoc % :editable? true) ps)))
+
+                    (dom/div #js {:id "sidebar"}
+                             (dom/h1 #js {:id "title"} "Planet Crash")
+                             (dom/div nil "Click on the type of body to add next:")
+                             (om/build mass-selecter (:selected-planet app))
+                             (dom/div #js {:id "control"}
+                                      (dom/button #js {:className "btn btn-default"
+                                                       :onClick (fn [_]
+                                                                  (let [control (if (:running? @app) stop start)]
+                                                                    (do
+                                                                      (put! control true)
+                                                                      (om/transact! app :running? not)
+                                                                      ;(om/transact! app :planets (fn [ps] (into [] (map #(assoc % :editable? (not running?)) ps)))
                                                                          )))
-                                              } "Pause")
-                             (dom/button #js {:onClick (fn [_]
-                                                         (do
-                                                           (put! start true)
-                                                           (om/update! app :running? true)
-                                                           (om/transact! app :planets (fn [ps] (into [] (map #(assoc % :editable? false) ps)))
-                                                                         )))
-                                              } "Play"))
-                    (dom/div nil
+                                                       } (dom/span #js {:className (if (:running? app) "fa fa-pause" "fa fa-play")}))
+                                      ))
+                    (comment (dom/div nil
                              (apply dom/div nil
                                     (om/build-all planet-editor (:planets app))
-                             ))
+                             )))
                   )
            )
          )

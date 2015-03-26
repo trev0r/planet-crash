@@ -16,9 +16,13 @@ if(typeof planet_crash.core.colors !== 'undefined')
 {} else
 {planet_crash.core.colors = new cljs.core.PersistentVector(null, 11, 5, cljs.core.PersistentVector.EMPTY_NODE, ["#F97A77","#6699CC","#99CC99","#F99157","#66CCCC","#CC99CC","#D27B53","#A0A093","#F2F0EC","#00FFFF","#E8E6DF"], null);
 }
+if(typeof planet_crash.core.preset_sizes !== 'undefined')
+{} else
+{planet_crash.core.preset_sizes = new cljs.core.PersistentVector(null, 6, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentArrayMap(null, 3, [cljs.core.constant$keyword$63,(1),cljs.core.constant$keyword$64,(15),cljs.core.constant$keyword$65,"Earth"], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.constant$keyword$63,(5),cljs.core.constant$keyword$64,(20),cljs.core.constant$keyword$65,"Super-Earth"], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.constant$keyword$63,(15),cljs.core.constant$keyword$64,(25),cljs.core.constant$keyword$65,"Ice giant"], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.constant$keyword$63,(300),cljs.core.constant$keyword$64,(40),cljs.core.constant$keyword$65,"Giant planet"], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.constant$keyword$63,(5000),cljs.core.constant$keyword$64,(60),cljs.core.constant$keyword$65,"Brown dwarf"], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.constant$keyword$63,(30000),cljs.core.constant$keyword$64,(100),cljs.core.constant$keyword$65,"Dwarf starf"], null)], null);
+}
 if(typeof planet_crash.core.app_state !== 'undefined')
 {} else
-{planet_crash.core.app_state = (function (){var G__15153 = new cljs.core.PersistentArrayMap(null, 4, [cljs.core.constant$keyword$63,(1280),cljs.core.constant$keyword$64,(700),cljs.core.constant$keyword$65,true,cljs.core.constant$keyword$66,new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentArrayMap(null, 6, [cljs.core.constant$keyword$67,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [(640),(350)], null),cljs.core.constant$keyword$68,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [(0),(0)], null),cljs.core.constant$keyword$69,(30),cljs.core.constant$keyword$70,(333000),cljs.core.constant$keyword$71,"#FFCC66",cljs.core.constant$keyword$72,false], null),new cljs.core.PersistentArrayMap(null, 6, [cljs.core.constant$keyword$67,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [(640),(150)], null),cljs.core.constant$keyword$68,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [40.8,(0)], null),cljs.core.constant$keyword$69,(10),cljs.core.constant$keyword$70,(50),cljs.core.constant$keyword$71,cljs.core.first(planet_crash.core.colors),cljs.core.constant$keyword$72,false], null),new cljs.core.PersistentArrayMap(null, 6, [cljs.core.constant$keyword$67,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [(640),(50)], null),cljs.core.constant$keyword$68,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [33.3,(0)], null),cljs.core.constant$keyword$69,(15),cljs.core.constant$keyword$70,(1),cljs.core.constant$keyword$71,cljs.core.second(planet_crash.core.colors),cljs.core.constant$keyword$72,false], null)], null)], null);return (cljs.core.atom.cljs$core$IFn$_invoke$arity$1 ? cljs.core.atom.cljs$core$IFn$_invoke$arity$1(G__15153) : cljs.core.atom.call(null,G__15153));
+{planet_crash.core.app_state = (function (){var G__15153 = new cljs.core.PersistentArrayMap(null, 5, [cljs.core.constant$keyword$66,(1280),cljs.core.constant$keyword$67,(700),cljs.core.constant$keyword$68,true,cljs.core.constant$keyword$69,cljs.core.first(planet_crash.core.preset_sizes),cljs.core.constant$keyword$70,new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentArrayMap(null, 6, [cljs.core.constant$keyword$71,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [(640),(350)], null),cljs.core.constant$keyword$72,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [(0),(0)], null),cljs.core.constant$keyword$64,(30),cljs.core.constant$keyword$63,(333000),cljs.core.constant$keyword$73,"#FFCC66",cljs.core.constant$keyword$74,false], null),new cljs.core.PersistentArrayMap(null, 6, [cljs.core.constant$keyword$71,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [(640),(150)], null),cljs.core.constant$keyword$72,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [40.8,(0)], null),cljs.core.constant$keyword$64,(10),cljs.core.constant$keyword$63,(50),cljs.core.constant$keyword$73,cljs.core.first(planet_crash.core.colors),cljs.core.constant$keyword$74,false], null),new cljs.core.PersistentArrayMap(null, 6, [cljs.core.constant$keyword$71,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [(640),(50)], null),cljs.core.constant$keyword$72,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [33.3,(0)], null),cljs.core.constant$keyword$64,(15),cljs.core.constant$keyword$63,(1),cljs.core.constant$keyword$73,cljs.core.second(planet_crash.core.colors),cljs.core.constant$keyword$74,false], null)], null)], null);return (cljs.core.atom.cljs$core$IFn$_invoke$arity$1 ? cljs.core.atom.cljs$core$IFn$_invoke$arity$1(G__15153) : cljs.core.atom.call(null,G__15153));
 })();
 }
 cljs.core.enable_console_print_BANG_();
@@ -62,7 +66,7 @@ gradient.addColorStop((1),"#212121");
 context.fillStyle = gradient;
 return context.fillRect((0),(0),(1280),(700));
 });
-planet_crash.core.draw_BANG_ = (function draw_BANG_(context,p__15166){var map__15169 = p__15166;var map__15169__$1 = ((cljs.core.seq_QMARK_(map__15169))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__15169):map__15169);var color = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__15169__$1,cljs.core.constant$keyword$71);var radius = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__15169__$1,cljs.core.constant$keyword$69);var position = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__15169__$1,cljs.core.constant$keyword$67);var vec__15170 = position;var x = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__15170,(0),null);var y = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__15170,(1),null);context.beginPath();
+planet_crash.core.draw_BANG_ = (function draw_BANG_(context,p__15166){var map__15169 = p__15166;var map__15169__$1 = ((cljs.core.seq_QMARK_(map__15169))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__15169):map__15169);var color = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__15169__$1,cljs.core.constant$keyword$73);var radius = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__15169__$1,cljs.core.constant$keyword$64);var position = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__15169__$1,cljs.core.constant$keyword$71);var vec__15170 = position;var x = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__15170,(0),null);var y = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__15170,(1),null);context.beginPath();
 context.arc(Math.floor(x),Math.floor(y),radius,(0),((2) * Math.PI),false);
 context.fillStyle = color;
 context.fill();
@@ -585,12 +589,12 @@ planet_crash.core.acceleration = (function acceleration(p1,p2,m){var p = planet_
 {return planet_crash.core.mul.cljs$core$IFn$_invoke$arity$variadic(cljs.core.array_seq([(m * a_mag),p], 0));
 }
 });
-planet_crash.core.agg_acceleration = (function agg_acceleration(p0,ps){var accs = cljs.core.map.cljs$core$IFn$_invoke$arity$2((function (p__15542){var map__15543 = p__15542;var map__15543__$1 = ((cljs.core.seq_QMARK_(map__15543))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__15543):map__15543);var mass = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__15543__$1,cljs.core.constant$keyword$70);var position = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__15543__$1,cljs.core.constant$keyword$67);return planet_crash.core.acceleration(p0,position,mass);
+planet_crash.core.agg_acceleration = (function agg_acceleration(p0,ps){var accs = cljs.core.map.cljs$core$IFn$_invoke$arity$2((function (p__15542){var map__15543 = p__15542;var map__15543__$1 = ((cljs.core.seq_QMARK_(map__15543))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__15543):map__15543);var mass = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__15543__$1,cljs.core.constant$keyword$63);var position = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__15543__$1,cljs.core.constant$keyword$71);return planet_crash.core.acceleration(p0,position,mass);
 }),ps);return cljs.core.apply.cljs$core$IFn$_invoke$arity$2(planet_crash.core.add,accs);
 });
 planet_crash.core.orbital_velocity = (function orbital_velocity(c1,c2,m){var vec__15545 = planet_crash.core.sub.cljs$core$IFn$_invoke$arity$variadic(cljs.core.array_seq([c1,c2], 0));var x = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__15545,(0),null);var y = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__15545,(1),null);var theta = Math.atan2(y,x);var r = Math.pow(((x * x) + (y * y)),.5);var v_mag = Math.pow((m / r),.5);return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [((- v_mag) * Math.sin(theta)),(v_mag * Math.cos(theta))], null);
 });
-planet_crash.core.update_planets = (function update_planets(planets,delta_t){var vs = cljs.core.map.cljs$core$IFn$_invoke$arity$2(cljs.core.constant$keyword$68,planets);var ps = cljs.core.map.cljs$core$IFn$_invoke$arity$2(cljs.core.constant$keyword$67,planets);var as = cljs.core.map.cljs$core$IFn$_invoke$arity$2(((function (vs,ps){
+planet_crash.core.update_planets = (function update_planets(planets,delta_t){var vs = cljs.core.map.cljs$core$IFn$_invoke$arity$2(cljs.core.constant$keyword$72,planets);var ps = cljs.core.map.cljs$core$IFn$_invoke$arity$2(cljs.core.constant$keyword$71,planets);var as = cljs.core.map.cljs$core$IFn$_invoke$arity$2(((function (vs,ps){
 return (function (p){return planet_crash.core.agg_acceleration(p,planets);
 });})(vs,ps))
 ,ps);var vs_delta = cljs.core.map.cljs$core$IFn$_invoke$arity$2(((function (vs,ps,as){
@@ -600,7 +604,7 @@ return (function (a){return planet_crash.core.mul.cljs$core$IFn$_invoke$arity$va
 return (function (v){return planet_crash.core.mul.cljs$core$IFn$_invoke$arity$variadic(cljs.core.array_seq([v,delta_t], 0));
 });})(vs,ps,as,vs_delta,vs_new))
 ,vs_new);var ps_new = cljs.core.map.cljs$core$IFn$_invoke$arity$3(planet_crash.core.add,ps,ps_delta);return cljs.core.into.cljs$core$IFn$_invoke$arity$2(cljs.core.PersistentVector.EMPTY,cljs.core.map.cljs$core$IFn$_invoke$arity$4(((function (vs,ps,as,vs_delta,vs_new,ps_delta,ps_new){
-return (function (planet,v,p){return cljs.core.assoc.cljs$core$IFn$_invoke$arity$variadic(planet,cljs.core.constant$keyword$68,cljs.core.into.cljs$core$IFn$_invoke$arity$2(cljs.core.PersistentVector.EMPTY,v),cljs.core.array_seq([cljs.core.constant$keyword$67,cljs.core.into.cljs$core$IFn$_invoke$arity$2(cljs.core.PersistentVector.EMPTY,p)], 0));
+return (function (planet,v,p){return cljs.core.assoc.cljs$core$IFn$_invoke$arity$variadic(planet,cljs.core.constant$keyword$72,cljs.core.into.cljs$core$IFn$_invoke$arity$2(cljs.core.PersistentVector.EMPTY,v),cljs.core.array_seq([cljs.core.constant$keyword$71,cljs.core.into.cljs$core$IFn$_invoke$arity$2(cljs.core.PersistentVector.EMPTY,p)], 0));
 });})(vs,ps,as,vs_delta,vs_new,ps_delta,ps_new))
 ,planets,vs_new,ps_new));
 });
@@ -633,26 +637,26 @@ planet_crash.core.t15583.cljs$lang$ctorPrWriter = (function (this__4217__auto__,
 });
 planet_crash.core.t15583.prototype.om$core$IRender$ = true;
 planet_crash.core.t15583.prototype.om$core$IRender$render$arity$1 = (function (_){var self__ = this;
-var ___$1 = this;var G__15586 = null;var G__15587 = (cljs.core.truth_(cljs.core.constant$keyword$72.cljs$core$IFn$_invoke$arity$1(self__.planet))?(function (){var G__15588 = null;var G__15589 = (function (){var G__15598 = {"className": "inspector"};var G__15599 = "{:mass ";return React.DOM.code(G__15598,G__15599);
+var ___$1 = this;var G__15586 = null;var G__15587 = (cljs.core.truth_(cljs.core.constant$keyword$74.cljs$core$IFn$_invoke$arity$1(self__.planet))?(function (){var G__15588 = null;var G__15589 = (function (){var G__15598 = {"className": "inspector"};var G__15599 = "{:mass ";return React.DOM.code(G__15598,G__15599);
 })();var G__15590 = (function (){var G__15600 = {"onChange": ((function (G__15588,G__15589,G__15586,___$1){
-return (function (p1__15548_SHARP_){return planet_crash.core.handle_change(p1__15548_SHARP_,self__.planet,self__.owner,cljs.core.constant$keyword$70);
+return (function (p1__15548_SHARP_){return planet_crash.core.handle_change(p1__15548_SHARP_,self__.planet,self__.owner,cljs.core.constant$keyword$63);
 });})(G__15588,G__15589,G__15586,___$1))
-, "size": (10), "value": cljs.core.constant$keyword$70.cljs$core$IFn$_invoke$arity$1(self__.planet), "className": "edit"};return (om.dom.input.cljs$core$IFn$_invoke$arity$1 ? om.dom.input.cljs$core$IFn$_invoke$arity$1(G__15600) : om.dom.input.call(null,G__15600));
+, "size": (10), "value": cljs.core.constant$keyword$63.cljs$core$IFn$_invoke$arity$1(self__.planet), "className": "edit"};return (om.dom.input.cljs$core$IFn$_invoke$arity$1 ? om.dom.input.cljs$core$IFn$_invoke$arity$1(G__15600) : om.dom.input.call(null,G__15600));
 })();var G__15591 = (function (){var G__15601 = {"className": "inspector"};var G__15602 = ", :radius ";return React.DOM.code(G__15601,G__15602);
 })();var G__15592 = (function (){var G__15603 = {"onChange": ((function (G__15588,G__15589,G__15590,G__15591,G__15586,___$1){
-return (function (p1__15549_SHARP_){return planet_crash.core.handle_change(p1__15549_SHARP_,self__.planet,self__.owner,cljs.core.constant$keyword$69);
+return (function (p1__15549_SHARP_){return planet_crash.core.handle_change(p1__15549_SHARP_,self__.planet,self__.owner,cljs.core.constant$keyword$64);
 });})(G__15588,G__15589,G__15590,G__15591,G__15586,___$1))
-, "size": (40), "value": cljs.core.constant$keyword$69.cljs$core$IFn$_invoke$arity$1(self__.planet), "className": "edit"};return (om.dom.input.cljs$core$IFn$_invoke$arity$1 ? om.dom.input.cljs$core$IFn$_invoke$arity$1(G__15603) : om.dom.input.call(null,G__15603));
+, "size": (40), "value": cljs.core.constant$keyword$64.cljs$core$IFn$_invoke$arity$1(self__.planet), "className": "edit"};return (om.dom.input.cljs$core$IFn$_invoke$arity$1 ? om.dom.input.cljs$core$IFn$_invoke$arity$1(G__15603) : om.dom.input.call(null,G__15603));
 })();var G__15593 = (function (){var G__15604 = {"className": "inspector"};var G__15605 = ", :position ";return React.DOM.code(G__15604,G__15605);
 })();var G__15594 = (function (){var G__15606 = {"onChange": ((function (G__15588,G__15589,G__15590,G__15591,G__15592,G__15593,G__15586,___$1){
-return (function (p1__15550_SHARP_){return planet_crash.core.handle_change(p1__15550_SHARP_,self__.planet,self__.owner,cljs.core.constant$keyword$67);
+return (function (p1__15550_SHARP_){return planet_crash.core.handle_change(p1__15550_SHARP_,self__.planet,self__.owner,cljs.core.constant$keyword$71);
 });})(G__15588,G__15589,G__15590,G__15591,G__15592,G__15593,G__15586,___$1))
-, "size": (40), "value": om.core.value(cljs.core.constant$keyword$67.cljs$core$IFn$_invoke$arity$1(self__.planet)), "className": "edit"};return (om.dom.input.cljs$core$IFn$_invoke$arity$1 ? om.dom.input.cljs$core$IFn$_invoke$arity$1(G__15606) : om.dom.input.call(null,G__15606));
+, "size": (40), "value": om.core.value(cljs.core.constant$keyword$71.cljs$core$IFn$_invoke$arity$1(self__.planet)), "className": "edit"};return (om.dom.input.cljs$core$IFn$_invoke$arity$1 ? om.dom.input.cljs$core$IFn$_invoke$arity$1(G__15606) : om.dom.input.call(null,G__15606));
 })();var G__15595 = (function (){var G__15607 = {"className": "inspector"};var G__15608 = ", :velocity ";return React.DOM.code(G__15607,G__15608);
 })();var G__15596 = (function (){var G__15609 = {"onChange": ((function (G__15588,G__15589,G__15590,G__15591,G__15592,G__15593,G__15594,G__15595,G__15586,___$1){
-return (function (p1__15551_SHARP_){return planet_crash.core.handle_change(p1__15551_SHARP_,self__.planet,self__.owner,cljs.core.constant$keyword$68);
+return (function (p1__15551_SHARP_){return planet_crash.core.handle_change(p1__15551_SHARP_,self__.planet,self__.owner,cljs.core.constant$keyword$72);
 });})(G__15588,G__15589,G__15590,G__15591,G__15592,G__15593,G__15594,G__15595,G__15586,___$1))
-, "size": (45), "value": om.core.value(cljs.core.constant$keyword$68.cljs$core$IFn$_invoke$arity$1(self__.planet)), "className": "edit"};return (om.dom.input.cljs$core$IFn$_invoke$arity$1 ? om.dom.input.cljs$core$IFn$_invoke$arity$1(G__15609) : om.dom.input.call(null,G__15609));
+, "size": (45), "value": om.core.value(cljs.core.constant$keyword$72.cljs$core$IFn$_invoke$arity$1(self__.planet)), "className": "edit"};return (om.dom.input.cljs$core$IFn$_invoke$arity$1 ? om.dom.input.cljs$core$IFn$_invoke$arity$1(G__15609) : om.dom.input.call(null,G__15609));
 })();var G__15597 = (function (){var G__15610 = {"className": "inspector"};var G__15611 = " }";return React.DOM.code(G__15610,G__15611);
 })();return React.DOM.div(G__15588,G__15589,G__15590,G__15591,G__15592,G__15593,G__15594,G__15595,G__15596,G__15597);
 })():(function (){var G__15612 = null;var G__15613 = planet_crash.core.pr_map_cursor(self__.planet);return React.DOM.code(G__15612,G__15613);
@@ -669,139 +673,232 @@ planet_crash.core.__GT_t15583 = (function __GT_t15583(owner__$1,planet__$1,plane
 }
 return (new planet_crash.core.t15583(owner,planet,planet_editor,null));
 });
-planet_crash.core.main = (function main(){return om.core.root((function (app,owner){if(typeof planet_crash.core.t15736 !== 'undefined')
+planet_crash.core.mass_selecter = (function mass_selecter(selected_mass,owner){if(typeof planet_crash.core.t15653 !== 'undefined')
 {} else
 {
 /**
 * @constructor
 */
-planet_crash.core.t15736 = (function (owner,app,main,meta15737){
+planet_crash.core.t15653 = (function (owner,selected_mass,mass_selecter,meta15654){
 this.owner = owner;
-this.app = app;
-this.main = main;
-this.meta15737 = meta15737;
+this.selected_mass = selected_mass;
+this.mass_selecter = mass_selecter;
+this.meta15654 = meta15654;
 this.cljs$lang$protocol_mask$partition1$ = 0;
 this.cljs$lang$protocol_mask$partition0$ = 393216;
 })
-planet_crash.core.t15736.cljs$lang$type = true;
-planet_crash.core.t15736.cljs$lang$ctorStr = "planet-crash.core/t15736";
-planet_crash.core.t15736.cljs$lang$ctorPrWriter = (function (this__4217__auto__,writer__4218__auto__,opt__4219__auto__){return cljs.core._write(writer__4218__auto__,"planet-crash.core/t15736");
+planet_crash.core.t15653.cljs$lang$type = true;
+planet_crash.core.t15653.cljs$lang$ctorStr = "planet-crash.core/t15653";
+planet_crash.core.t15653.cljs$lang$ctorPrWriter = (function (this__4217__auto__,writer__4218__auto__,opt__4219__auto__){return cljs.core._write(writer__4218__auto__,"planet-crash.core/t15653");
 });
-planet_crash.core.t15736.prototype.om$core$IRender$ = true;
-planet_crash.core.t15736.prototype.om$core$IRender$render$arity$1 = (function (_){var self__ = this;
-var ___$1 = this;var vec__15739 = om.core.get_state.cljs$core$IFn$_invoke$arity$2(self__.owner,cljs.core.constant$keyword$73);var ___$2 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__15739,(0),null);var start = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__15739,(1),null);var stop = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__15739,(2),null);var G__15740 = null;var G__15741 = (function (){var G__15744 = {"ref": "universe-ref", "height": (function (){var G__15746 = cljs.core.constant$keyword$64;return (self__.app.cljs$core$IFn$_invoke$arity$1 ? self__.app.cljs$core$IFn$_invoke$arity$1(G__15746) : self__.app.call(null,G__15746));
-})(), "width": (function (){var G__15745 = cljs.core.constant$keyword$63;return (self__.app.cljs$core$IFn$_invoke$arity$1 ? self__.app.cljs$core$IFn$_invoke$arity$1(G__15745) : self__.app.call(null,G__15745));
-})(), "id": "universe"};return React.DOM.canvas(G__15744);
-})();var G__15742 = (function (){var G__15747 = null;var G__15748 = (function (){var G__15751 = null;var G__15752 = "Click to add a planet ";return React.DOM.label(G__15751,G__15752);
-})();var G__15749 = (function (){var G__15753 = {"onClick": ((function (G__15747,G__15748,G__15740,G__15741,vec__15739,___$2,start,stop,___$1){
-return (function (___$3){cljs.core.async.put_BANG_.cljs$core$IFn$_invoke$arity$2(stop,true);
-om.core.update_BANG_.cljs$core$IFn$_invoke$arity$3(self__.app,cljs.core.constant$keyword$65,false);
-return om.core.transact_BANG_.cljs$core$IFn$_invoke$arity$3(self__.app,cljs.core.constant$keyword$66,((function (G__15747,G__15748,G__15740,G__15741,vec__15739,___$2,start,stop,___$1){
-return (function (ps){return cljs.core.into.cljs$core$IFn$_invoke$arity$2(cljs.core.PersistentVector.EMPTY,cljs.core.map.cljs$core$IFn$_invoke$arity$2(((function (G__15747,G__15748,G__15740,G__15741,vec__15739,___$2,start,stop,___$1){
-return (function (p1__15616_SHARP_){return cljs.core.assoc.cljs$core$IFn$_invoke$arity$3(p1__15616_SHARP_,cljs.core.constant$keyword$72,true);
-});})(G__15747,G__15748,G__15740,G__15741,vec__15739,___$2,start,stop,___$1))
-,ps));
-});})(G__15747,G__15748,G__15740,G__15741,vec__15739,___$2,start,stop,___$1))
+planet_crash.core.t15653.prototype.om$core$IRender$ = true;
+planet_crash.core.t15653.prototype.om$core$IRender$render$arity$1 = (function (_){var self__ = this;
+var ___$1 = this;var G__15656 = {"id": "mass-selecter"};var G__15657 = cljs.core.apply.cljs$core$IFn$_invoke$arity$3(om.dom.ul,{"className": "nav nav-pills nav-stacked", "id": "masses"},(function (){var iter__4379__auto__ = ((function (G__15656,___$1){
+return (function iter__15658(s__15659){return (new cljs.core.LazySeq(null,((function (G__15656,___$1){
+return (function (){var s__15659__$1 = s__15659;while(true){
+var temp__4219__auto__ = cljs.core.seq(s__15659__$1);if(temp__4219__auto__)
+{var s__15659__$2 = temp__4219__auto__;if(cljs.core.chunked_seq_QMARK_(s__15659__$2))
+{var c__4377__auto__ = cljs.core.chunk_first(s__15659__$2);var size__4378__auto__ = cljs.core.count(c__4377__auto__);var b__15661 = cljs.core.chunk_buffer(size__4378__auto__);if((function (){var i__15660 = (0);while(true){
+if((i__15660 < size__4378__auto__))
+{var p = cljs.core._nth.cljs$core$IFn$_invoke$arity$2(c__4377__auto__,i__15660);cljs.core.chunk_append(b__15661,(function (){var G__15678 = {"className": ((cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(p,self__.selected_mass))?"active":null)};var G__15679 = (function (){var G__15680 = {"onClick": ((function (i__15660,G__15678,p,c__4377__auto__,size__4378__auto__,b__15661,s__15659__$2,temp__4219__auto__,G__15656,___$1){
+return (function (){return om.core.transact_BANG_.cljs$core$IFn$_invoke$arity$2(self__.selected_mass,((function (i__15660,G__15678,p,c__4377__auto__,size__4378__auto__,b__15661,s__15659__$2,temp__4219__auto__,G__15656,___$1){
+return (function (___$2){return p;
+});})(i__15660,G__15678,p,c__4377__auto__,size__4378__auto__,b__15661,s__15659__$2,temp__4219__auto__,G__15656,___$1))
 );
-});})(G__15747,G__15748,G__15740,G__15741,vec__15739,___$2,start,stop,___$1))
-};var G__15754 = "Pause";return React.DOM.button(G__15753,G__15754);
-})();var G__15750 = (function (){var G__15755 = {"onClick": ((function (G__15747,G__15748,G__15749,G__15740,G__15741,vec__15739,___$2,start,stop,___$1){
-return (function (___$3){cljs.core.async.put_BANG_.cljs$core$IFn$_invoke$arity$2(start,true);
-om.core.update_BANG_.cljs$core$IFn$_invoke$arity$3(self__.app,cljs.core.constant$keyword$65,true);
-return om.core.transact_BANG_.cljs$core$IFn$_invoke$arity$3(self__.app,cljs.core.constant$keyword$66,((function (G__15747,G__15748,G__15749,G__15740,G__15741,vec__15739,___$2,start,stop,___$1){
-return (function (ps){return cljs.core.into.cljs$core$IFn$_invoke$arity$2(cljs.core.PersistentVector.EMPTY,cljs.core.map.cljs$core$IFn$_invoke$arity$2(((function (G__15747,G__15748,G__15749,G__15740,G__15741,vec__15739,___$2,start,stop,___$1){
-return (function (p1__15617_SHARP_){return cljs.core.assoc.cljs$core$IFn$_invoke$arity$3(p1__15617_SHARP_,cljs.core.constant$keyword$72,false);
-});})(G__15747,G__15748,G__15749,G__15740,G__15741,vec__15739,___$2,start,stop,___$1))
-,ps));
-});})(G__15747,G__15748,G__15749,G__15740,G__15741,vec__15739,___$2,start,stop,___$1))
+});})(i__15660,G__15678,p,c__4377__auto__,size__4378__auto__,b__15661,s__15659__$2,temp__4219__auto__,G__15656,___$1))
+, "className": "mass-sel", "href": "#"};var G__15681 = cljs.core.constant$keyword$65.cljs$core$IFn$_invoke$arity$1(p);var G__15682 = (function (){var G__15683 = {"className": "badge pull-right"};var G__15684 = (''+cljs.core.str.cljs$core$IFn$_invoke$arity$1(cljs.core.constant$keyword$63.cljs$core$IFn$_invoke$arity$1(p))+"x");return React.DOM.span(G__15683,G__15684);
+})();return React.DOM.a(G__15680,G__15681,G__15682);
+})();return React.DOM.li(G__15678,G__15679);
+})());
+{
+var G__15692 = (i__15660 + (1));
+i__15660 = G__15692;
+continue;
+}
+} else
+{return true;
+}
+break;
+}
+})())
+{return cljs.core.chunk_cons(cljs.core.chunk(b__15661),iter__15658(cljs.core.chunk_rest(s__15659__$2)));
+} else
+{return cljs.core.chunk_cons(cljs.core.chunk(b__15661),null);
+}
+} else
+{var p = cljs.core.first(s__15659__$2);return cljs.core.cons((function (){var G__15685 = {"className": ((cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(p,self__.selected_mass))?"active":null)};var G__15686 = (function (){var G__15687 = {"onClick": ((function (G__15685,p,s__15659__$2,temp__4219__auto__,G__15656,___$1){
+return (function (){return om.core.transact_BANG_.cljs$core$IFn$_invoke$arity$2(self__.selected_mass,((function (G__15685,p,s__15659__$2,temp__4219__auto__,G__15656,___$1){
+return (function (___$2){return p;
+});})(G__15685,p,s__15659__$2,temp__4219__auto__,G__15656,___$1))
 );
-});})(G__15747,G__15748,G__15749,G__15740,G__15741,vec__15739,___$2,start,stop,___$1))
-};var G__15756 = "Play";return React.DOM.button(G__15755,G__15756);
-})();return React.DOM.div(G__15747,G__15748,G__15749,G__15750);
-})();var G__15743 = (function (){var G__15757 = null;var G__15758 = cljs.core.apply.cljs$core$IFn$_invoke$arity$3(om.dom.div,null,om.core.build_all.cljs$core$IFn$_invoke$arity$2(planet_crash.core.planet_editor,cljs.core.constant$keyword$66.cljs$core$IFn$_invoke$arity$1(self__.app)));return React.DOM.div(G__15757,G__15758);
-})();return React.DOM.div(G__15740,G__15741,G__15742,G__15743);
+});})(G__15685,p,s__15659__$2,temp__4219__auto__,G__15656,___$1))
+, "className": "mass-sel", "href": "#"};var G__15688 = cljs.core.constant$keyword$65.cljs$core$IFn$_invoke$arity$1(p);var G__15689 = (function (){var G__15690 = {"className": "badge pull-right"};var G__15691 = (''+cljs.core.str.cljs$core$IFn$_invoke$arity$1(cljs.core.constant$keyword$63.cljs$core$IFn$_invoke$arity$1(p))+"x");return React.DOM.span(G__15690,G__15691);
+})();return React.DOM.a(G__15687,G__15688,G__15689);
+})();return React.DOM.li(G__15685,G__15686);
+})(),iter__15658(cljs.core.rest(s__15659__$2)));
+}
+} else
+{return null;
+}
+break;
+}
+});})(G__15656,___$1))
+,null,null));
+});})(G__15656,___$1))
+;return iter__4379__auto__(planet_crash.core.preset_sizes);
+})());return React.DOM.div(G__15656,G__15657);
 });
-planet_crash.core.t15736.prototype.om$core$IDidMount$ = true;
-planet_crash.core.t15736.prototype.om$core$IDidMount$did_mount$arity$1 = (function (_){var self__ = this;
-var ___$1 = this;var universe = om.core.get_node.cljs$core$IFn$_invoke$arity$2(self__.owner,"universe-ref");var context = universe.getContext("2d");var render = planet_crash.core.render_chan(context);var vec__15759 = om.core.get_state.cljs$core$IFn$_invoke$arity$2(self__.owner,cljs.core.constant$keyword$73);var clock = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__15759,(0),null);var clicks = planet_crash.core.events__GT_chan.cljs$core$IFn$_invoke$arity$3(universe,goog.events.EventType.CLICK,cljs.core.async.chan.cljs$core$IFn$_invoke$arity$2((1),cljs.core.map.cljs$core$IFn$_invoke$arity$1(planet_crash.core.mouse_loc__GT_vec)));var c__6495__auto__ = cljs.core.async.chan.cljs$core$IFn$_invoke$arity$1((1));cljs.core.async.impl.dispatch.run(((function (c__6495__auto__,universe,context,render,vec__15759,clock,clicks,___$1){
-return (function (){var f__6496__auto__ = (function (){var switch__6480__auto__ = ((function (c__6495__auto__,universe,context,render,vec__15759,clock,clicks,___$1){
-return (function (state_15822){var state_val_15823 = (state_15822[(1)]);if((state_val_15823 === (7)))
-{var inst_15817 = (state_15822[(2)]);var state_15822__$1 = (function (){var statearr_15824 = state_15822;(statearr_15824[(7)] = inst_15817);
-return statearr_15824;
-})();var statearr_15825_15854 = state_15822__$1;(statearr_15825_15854[(2)] = null);
-(statearr_15825_15854[(1)] = (2));
+planet_crash.core.t15653.prototype.cljs$core$IMeta$_meta$arity$1 = (function (_15655){var self__ = this;
+var _15655__$1 = this;return self__.meta15654;
+});
+planet_crash.core.t15653.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = (function (_15655,meta15654__$1){var self__ = this;
+var _15655__$1 = this;return (new planet_crash.core.t15653(self__.owner,self__.selected_mass,self__.mass_selecter,meta15654__$1));
+});
+planet_crash.core.__GT_t15653 = (function __GT_t15653(owner__$1,selected_mass__$1,mass_selecter__$1,meta15654){return (new planet_crash.core.t15653(owner__$1,selected_mass__$1,mass_selecter__$1,meta15654));
+});
+}
+return (new planet_crash.core.t15653(owner,selected_mass,mass_selecter,null));
+});
+planet_crash.core.main = (function main(){return om.core.root((function (app,owner){if(typeof planet_crash.core.t15833 !== 'undefined')
+{} else
+{
+/**
+* @constructor
+*/
+planet_crash.core.t15833 = (function (owner,app,main,meta15834){
+this.owner = owner;
+this.app = app;
+this.main = main;
+this.meta15834 = meta15834;
+this.cljs$lang$protocol_mask$partition1$ = 0;
+this.cljs$lang$protocol_mask$partition0$ = 393216;
+})
+planet_crash.core.t15833.cljs$lang$type = true;
+planet_crash.core.t15833.cljs$lang$ctorStr = "planet-crash.core/t15833";
+planet_crash.core.t15833.cljs$lang$ctorPrWriter = (function (this__4217__auto__,writer__4218__auto__,opt__4219__auto__){return cljs.core._write(writer__4218__auto__,"planet-crash.core/t15833");
+});
+planet_crash.core.t15833.prototype.om$core$IRender$ = true;
+planet_crash.core.t15833.prototype.om$core$IRender$render$arity$1 = (function (_){var self__ = this;
+var ___$1 = this;var vec__15836 = om.core.get_state.cljs$core$IFn$_invoke$arity$2(self__.owner,cljs.core.constant$keyword$75);var ___$2 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__15836,(0),null);var start = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__15836,(1),null);var stop = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__15836,(2),null);var G__15837 = null;var G__15838 = (function (){var G__15841 = {"ref": "universe-ref", "height": (function (){var G__15843 = cljs.core.constant$keyword$67;return (self__.app.cljs$core$IFn$_invoke$arity$1 ? self__.app.cljs$core$IFn$_invoke$arity$1(G__15843) : self__.app.call(null,G__15843));
+})(), "width": (function (){var G__15842 = cljs.core.constant$keyword$66;return (self__.app.cljs$core$IFn$_invoke$arity$1 ? self__.app.cljs$core$IFn$_invoke$arity$1(G__15842) : self__.app.call(null,G__15842));
+})(), "id": "universe"};return React.DOM.canvas(G__15841);
+})();var G__15839 = (function (){var G__15844 = {"id": "sidebar"};var G__15845 = (function (){var G__15849 = {"id": "title"};var G__15850 = "Planet Crash";return React.DOM.h1(G__15849,G__15850);
+})();var G__15846 = (function (){var G__15851 = null;var G__15852 = "Click on the type of body to add next:";return React.DOM.div(G__15851,G__15852);
+})();var G__15847 = om.core.build.cljs$core$IFn$_invoke$arity$2(planet_crash.core.mass_selecter,cljs.core.constant$keyword$69.cljs$core$IFn$_invoke$arity$1(self__.app));var G__15848 = (function (){var G__15853 = {"id": "control"};var G__15854 = (function (){var G__15855 = {"onClick": ((function (G__15853,G__15844,G__15845,G__15846,G__15847,G__15837,G__15838,vec__15836,___$2,start,stop,___$1){
+return (function (___$3){var control = (cljs.core.truth_(cljs.core.constant$keyword$68.cljs$core$IFn$_invoke$arity$1((function (){var G__15857 = self__.app;return (cljs.core.deref.cljs$core$IFn$_invoke$arity$1 ? cljs.core.deref.cljs$core$IFn$_invoke$arity$1(G__15857) : cljs.core.deref.call(null,G__15857));
+})()))?stop:start);cljs.core.async.put_BANG_.cljs$core$IFn$_invoke$arity$2(control,true);
+return om.core.transact_BANG_.cljs$core$IFn$_invoke$arity$3(self__.app,cljs.core.constant$keyword$68,cljs.core.not);
+});})(G__15853,G__15844,G__15845,G__15846,G__15847,G__15837,G__15838,vec__15836,___$2,start,stop,___$1))
+, "className": "btn btn-default"};var G__15856 = (function (){var G__15858 = {"className": (cljs.core.truth_(cljs.core.constant$keyword$68.cljs$core$IFn$_invoke$arity$1(self__.app))?"fa fa-pause":"fa fa-play")};return React.DOM.span(G__15858);
+})();return React.DOM.button(G__15855,G__15856);
+})();return React.DOM.div(G__15853,G__15854);
+})();return React.DOM.div(G__15844,G__15845,G__15846,G__15847,G__15848);
+})();var G__15840 = null;return React.DOM.div(G__15837,G__15838,G__15839,G__15840);
+});
+planet_crash.core.t15833.prototype.om$core$IDidMount$ = true;
+planet_crash.core.t15833.prototype.om$core$IDidMount$did_mount$arity$1 = (function (_){var self__ = this;
+var ___$1 = this;var universe = om.core.get_node.cljs$core$IFn$_invoke$arity$2(self__.owner,"universe-ref");var context = universe.getContext("2d");var render = planet_crash.core.render_chan(context);var vec__15859 = om.core.get_state.cljs$core$IFn$_invoke$arity$2(self__.owner,cljs.core.constant$keyword$75);var clock = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__15859,(0),null);var clicks = planet_crash.core.events__GT_chan.cljs$core$IFn$_invoke$arity$3(universe,goog.events.EventType.CLICK,cljs.core.async.chan.cljs$core$IFn$_invoke$arity$2((1),cljs.core.map.cljs$core$IFn$_invoke$arity$1(planet_crash.core.mouse_loc__GT_vec)));var c__6495__auto__ = cljs.core.async.chan.cljs$core$IFn$_invoke$arity$1((1));cljs.core.async.impl.dispatch.run(((function (c__6495__auto__,universe,context,render,vec__15859,clock,clicks,___$1){
+return (function (){var f__6496__auto__ = (function (){var switch__6480__auto__ = ((function (c__6495__auto__,universe,context,render,vec__15859,clock,clicks,___$1){
+return (function (state_15933){var state_val_15934 = (state_15933[(1)]);if((state_val_15934 === (7)))
+{var inst_15928 = (state_15933[(2)]);var state_15933__$1 = (function (){var statearr_15935 = state_15933;(statearr_15935[(7)] = inst_15928);
+return statearr_15935;
+})();var statearr_15936_15971 = state_15933__$1;(statearr_15936_15971[(2)] = null);
+(statearr_15936_15971[(1)] = (2));
 return cljs.core.constant$keyword$16;
 } else
-{if((state_val_15823 === (1)))
-{var state_15822__$1 = state_15822;var statearr_15826_15855 = state_15822__$1;(statearr_15826_15855[(2)] = null);
-(statearr_15826_15855[(1)] = (2));
+{if((state_val_15934 === (1)))
+{var state_15933__$1 = state_15933;var statearr_15937_15972 = state_15933__$1;(statearr_15937_15972[(2)] = null);
+(statearr_15937_15972[(1)] = (2));
 return cljs.core.constant$keyword$16;
 } else
-{if((state_val_15823 === (4)))
-{var inst_15771 = (state_15822[(8)]);var inst_15769 = (state_15822[(9)]);var inst_15769__$1 = (state_15822[(2)]);var inst_15770 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(inst_15769__$1,(0),null);var inst_15771__$1 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(inst_15769__$1,(1),null);var inst_15775 = cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(clicks,inst_15771__$1);var state_15822__$1 = (function (){var statearr_15827 = state_15822;(statearr_15827[(8)] = inst_15771__$1);
-(statearr_15827[(9)] = inst_15769__$1);
-(statearr_15827[(10)] = inst_15770);
-return statearr_15827;
-})();if(inst_15775)
-{var statearr_15828_15856 = state_15822__$1;(statearr_15828_15856[(1)] = (5));
+{if((state_val_15934 === (4)))
+{var inst_15869 = (state_15933[(8)]);var inst_15871 = (state_15933[(9)]);var inst_15869__$1 = (state_15933[(2)]);var inst_15870 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(inst_15869__$1,(0),null);var inst_15871__$1 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(inst_15869__$1,(1),null);var inst_15875 = cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(clicks,inst_15871__$1);var state_15933__$1 = (function (){var statearr_15938 = state_15933;(statearr_15938[(8)] = inst_15869__$1);
+(statearr_15938[(10)] = inst_15870);
+(statearr_15938[(9)] = inst_15871__$1);
+return statearr_15938;
+})();if(inst_15875)
+{var statearr_15939_15973 = state_15933__$1;(statearr_15939_15973[(1)] = (5));
 } else
-{var statearr_15829_15857 = state_15822__$1;(statearr_15829_15857[(1)] = (6));
+{var statearr_15940_15974 = state_15933__$1;(statearr_15940_15974[(1)] = (6));
 }
 return cljs.core.constant$keyword$16;
 } else
-{if((state_val_15823 === (6)))
-{var inst_15771 = (state_15822[(8)]);var inst_15801 = cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(clock,inst_15771);var state_15822__$1 = state_15822;if(inst_15801)
-{var statearr_15830_15858 = state_15822__$1;(statearr_15830_15858[(1)] = (8));
+{if((state_val_15934 === (13)))
+{var inst_15926 = (state_15933[(2)]);var state_15933__$1 = state_15933;var statearr_15941_15975 = state_15933__$1;(statearr_15941_15975[(2)] = inst_15926);
+(statearr_15941_15975[(1)] = (7));
+return cljs.core.constant$keyword$16;
 } else
-{var statearr_15831_15859 = state_15822__$1;(statearr_15831_15859[(1)] = (9));
+{if((state_val_15934 === (6)))
+{var inst_15871 = (state_15933[(9)]);var inst_15912 = cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(clock,inst_15871);var state_15933__$1 = state_15933;if(inst_15912)
+{var statearr_15942_15976 = state_15933__$1;(statearr_15942_15976[(1)] = (11));
+} else
+{var statearr_15943_15977 = state_15933__$1;(statearr_15943_15977[(1)] = (12));
 }
 return cljs.core.constant$keyword$16;
 } else
-{if((state_val_15823 === (3)))
-{var inst_15820 = (state_15822[(2)]);var state_15822__$1 = state_15822;return cljs.core.async.impl.ioc_helpers.return_chan(state_15822__$1,inst_15820);
+{if((state_val_15934 === (3)))
+{var inst_15931 = (state_15933[(2)]);var state_15933__$1 = state_15933;return cljs.core.async.impl.ioc_helpers.return_chan(state_15933__$1,inst_15931);
 } else
-{if((state_val_15823 === (2)))
-{var inst_15761 = (function (){var G__15832 = self__.app;return (cljs.core.deref.cljs$core$IFn$_invoke$arity$1 ? cljs.core.deref.cljs$core$IFn$_invoke$arity$1(G__15832) : cljs.core.deref.call(null,G__15832));
-})();var inst_15762 = cljs.core.constant$keyword$66.cljs$core$IFn$_invoke$arity$1(inst_15761);var inst_15763 = cljs.core.async.put_BANG_.cljs$core$IFn$_invoke$arity$2(render,inst_15762);var inst_15765 = cljs.core.PersistentVector.EMPTY_NODE;var inst_15766 = [clicks,clock];var inst_15767 = (new cljs.core.PersistentVector(null,2,(5),inst_15765,inst_15766,null));var state_15822__$1 = (function (){var statearr_15833 = state_15822;(statearr_15833[(11)] = inst_15763);
-return statearr_15833;
-})();return cljs.core.async.ioc_alts_BANG_(state_15822__$1,(4),inst_15767);
-} else
-{if((state_val_15823 === (9)))
-{var inst_15771 = (state_15822[(8)]);var inst_15811 = ("No matching clause: "+cljs.core.str.cljs$core$IFn$_invoke$arity$1(inst_15771));var inst_15812 = (new Error(inst_15811));var inst_15813 = (function(){throw inst_15812})();var state_15822__$1 = state_15822;var statearr_15834_15860 = state_15822__$1;(statearr_15834_15860[(2)] = inst_15813);
-(statearr_15834_15860[(1)] = (10));
+{if((state_val_15934 === (12)))
+{var inst_15871 = (state_15933[(9)]);var inst_15922 = ("No matching clause: "+cljs.core.str.cljs$core$IFn$_invoke$arity$1(inst_15871));var inst_15923 = (new Error(inst_15922));var inst_15924 = (function(){throw inst_15923})();var state_15933__$1 = state_15933;var statearr_15944_15978 = state_15933__$1;(statearr_15944_15978[(2)] = inst_15924);
+(statearr_15944_15978[(1)] = (13));
 return cljs.core.constant$keyword$16;
 } else
-{if((state_val_15823 === (5)))
-{var inst_15771 = (state_15822[(8)]);var inst_15769 = (state_15822[(9)]);var inst_15770 = (state_15822[(10)]);var inst_15777 = (function (){var G__15835 = self__.app;return (cljs.core.deref.cljs$core$IFn$_invoke$arity$1 ? cljs.core.deref.cljs$core$IFn$_invoke$arity$1(G__15835) : cljs.core.deref.call(null,G__15835));
-})();var inst_15778 = cljs.core.constant$keyword$66.cljs$core$IFn$_invoke$arity$1(inst_15777);var inst_15779 = cljs.core.first(inst_15778);var inst_15780 = (function (){var G__15836 = self__.app;return (cljs.core.deref.cljs$core$IFn$_invoke$arity$1 ? cljs.core.deref.cljs$core$IFn$_invoke$arity$1(G__15836) : cljs.core.deref.call(null,G__15836));
-})();var inst_15781 = cljs.core.constant$keyword$66.cljs$core$IFn$_invoke$arity$1(inst_15780);var inst_15782 = cljs.core.count(inst_15781);var inst_15783 = cljs.core.count(planet_crash.core.colors);var inst_15784 = cljs.core.mod(inst_15782,inst_15783);var inst_15785 = cljs.core.constant$keyword$67.cljs$core$IFn$_invoke$arity$1(inst_15779);var inst_15786 = cljs.core.constant$keyword$70.cljs$core$IFn$_invoke$arity$1(inst_15779);var inst_15787 = planet_crash.core.orbital_velocity(inst_15770,inst_15785,inst_15786);var inst_15788 = [cljs.core.constant$keyword$67,cljs.core.constant$keyword$68,cljs.core.constant$keyword$69,cljs.core.constant$keyword$70,cljs.core.constant$keyword$71,cljs.core.constant$keyword$72];var inst_15789 = cljs.core.nth.cljs$core$IFn$_invoke$arity$2(planet_crash.core.colors,inst_15784);var inst_15790 = (function (){var G__15837 = self__.app;return (cljs.core.deref.cljs$core$IFn$_invoke$arity$1 ? cljs.core.deref.cljs$core$IFn$_invoke$arity$1(G__15837) : cljs.core.deref.call(null,G__15837));
-})();var inst_15791 = cljs.core.constant$keyword$65.cljs$core$IFn$_invoke$arity$1(inst_15790);var inst_15792 = cljs.core.not(inst_15791);var inst_15793 = [inst_15770,inst_15787,(10),(1),inst_15789,inst_15792];var inst_15794 = cljs.core.PersistentHashMap.fromArrays(inst_15788,inst_15793);var inst_15795 = (function (){var new_planet = inst_15794;var initial_velocity = inst_15787;var color_index = inst_15784;var sun = inst_15779;var expr__15773 = inst_15771;var pred__15772 = cljs.core._EQ_;var ch = inst_15771;var val = inst_15770;var vec__15764 = inst_15769;return ((function (new_planet,initial_velocity,color_index,sun,expr__15773,pred__15772,ch,val,vec__15764,inst_15771,inst_15769,inst_15770,inst_15777,inst_15778,inst_15779,inst_15780,inst_15781,inst_15782,inst_15783,inst_15784,inst_15785,inst_15786,inst_15787,inst_15788,inst_15789,inst_15790,inst_15791,inst_15792,inst_15793,inst_15794,state_val_15823,c__6495__auto__,universe,context,render,vec__15759,clock,clicks,___$1){
-return (function (p1__15614_SHARP_){return cljs.core.conj.cljs$core$IFn$_invoke$arity$2(p1__15614_SHARP_,new_planet);
+{if((state_val_15934 === (2)))
+{var inst_15861 = (function (){var G__15945 = self__.app;return (cljs.core.deref.cljs$core$IFn$_invoke$arity$1 ? cljs.core.deref.cljs$core$IFn$_invoke$arity$1(G__15945) : cljs.core.deref.call(null,G__15945));
+})();var inst_15862 = cljs.core.constant$keyword$70.cljs$core$IFn$_invoke$arity$1(inst_15861);var inst_15863 = cljs.core.async.put_BANG_.cljs$core$IFn$_invoke$arity$2(render,inst_15862);var inst_15865 = cljs.core.PersistentVector.EMPTY_NODE;var inst_15866 = [clicks,clock];var inst_15867 = (new cljs.core.PersistentVector(null,2,(5),inst_15865,inst_15866,null));var state_15933__$1 = (function (){var statearr_15946 = state_15933;(statearr_15946[(11)] = inst_15863);
+return statearr_15946;
+})();return cljs.core.async.ioc_alts_BANG_(state_15933__$1,(4),inst_15867);
+} else
+{if((state_val_15934 === (11)))
+{var inst_15869 = (state_15933[(8)]);var inst_15870 = (state_15933[(10)]);var inst_15871 = (state_15933[(9)]);var inst_15914 = (function (){var G__15947 = self__.app;return (cljs.core.deref.cljs$core$IFn$_invoke$arity$1 ? cljs.core.deref.cljs$core$IFn$_invoke$arity$1(G__15947) : cljs.core.deref.call(null,G__15947));
+})();var inst_15915 = cljs.core.constant$keyword$70.cljs$core$IFn$_invoke$arity$1(inst_15914);var inst_15916 = (function (){var old_planets = inst_15915;var expr__15873 = inst_15871;var pred__15872 = cljs.core._EQ_;var ch = inst_15871;var val = inst_15870;var vec__15864 = inst_15869;return ((function (old_planets,expr__15873,pred__15872,ch,val,vec__15864,inst_15869,inst_15870,inst_15871,inst_15914,inst_15915,state_val_15934,c__6495__auto__,universe,context,render,vec__15859,clock,clicks,___$1){
+return (function (p1__15694_SHARP_){return planet_crash.core.update_planets(p1__15694_SHARP_,.3);
 });
-;})(new_planet,initial_velocity,color_index,sun,expr__15773,pred__15772,ch,val,vec__15764,inst_15771,inst_15769,inst_15770,inst_15777,inst_15778,inst_15779,inst_15780,inst_15781,inst_15782,inst_15783,inst_15784,inst_15785,inst_15786,inst_15787,inst_15788,inst_15789,inst_15790,inst_15791,inst_15792,inst_15793,inst_15794,state_val_15823,c__6495__auto__,universe,context,render,vec__15759,clock,clicks,___$1))
-})();var inst_15796 = om.core.transact_BANG_.cljs$core$IFn$_invoke$arity$3(self__.app,cljs.core.constant$keyword$66,inst_15795);var inst_15797 = (function (){var G__15838 = self__.app;return (cljs.core.deref.cljs$core$IFn$_invoke$arity$1 ? cljs.core.deref.cljs$core$IFn$_invoke$arity$1(G__15838) : cljs.core.deref.call(null,G__15838));
-})();var inst_15798 = cljs.core.constant$keyword$66.cljs$core$IFn$_invoke$arity$1(inst_15797);var inst_15799 = cljs.core.async.put_BANG_.cljs$core$IFn$_invoke$arity$2(render,inst_15798);var state_15822__$1 = (function (){var statearr_15839 = state_15822;(statearr_15839[(12)] = inst_15796);
-return statearr_15839;
-})();var statearr_15840_15861 = state_15822__$1;(statearr_15840_15861[(2)] = inst_15799);
-(statearr_15840_15861[(1)] = (7));
+;})(old_planets,expr__15873,pred__15872,ch,val,vec__15864,inst_15869,inst_15870,inst_15871,inst_15914,inst_15915,state_val_15934,c__6495__auto__,universe,context,render,vec__15859,clock,clicks,___$1))
+})();var inst_15917 = om.core.transact_BANG_.cljs$core$IFn$_invoke$arity$3(self__.app,cljs.core.constant$keyword$70,inst_15916);var inst_15918 = (function (){var G__15948 = self__.app;return (cljs.core.deref.cljs$core$IFn$_invoke$arity$1 ? cljs.core.deref.cljs$core$IFn$_invoke$arity$1(G__15948) : cljs.core.deref.call(null,G__15948));
+})();var inst_15919 = cljs.core.constant$keyword$70.cljs$core$IFn$_invoke$arity$1(inst_15918);var inst_15920 = cljs.core.async.put_BANG_.cljs$core$IFn$_invoke$arity$2(render,inst_15919);var state_15933__$1 = (function (){var statearr_15949 = state_15933;(statearr_15949[(12)] = inst_15917);
+return statearr_15949;
+})();var statearr_15950_15979 = state_15933__$1;(statearr_15950_15979[(2)] = inst_15920);
+(statearr_15950_15979[(1)] = (13));
 return cljs.core.constant$keyword$16;
 } else
-{if((state_val_15823 === (10)))
-{var inst_15815 = (state_15822[(2)]);var state_15822__$1 = state_15822;var statearr_15841_15862 = state_15822__$1;(statearr_15841_15862[(2)] = inst_15815);
-(statearr_15841_15862[(1)] = (7));
+{if((state_val_15934 === (9)))
+{var inst_15887 = (state_15933[(13)]);var state_15933__$1 = state_15933;var statearr_15951_15980 = state_15933__$1;(statearr_15951_15980[(2)] = inst_15887);
+(statearr_15951_15980[(1)] = (10));
 return cljs.core.constant$keyword$16;
 } else
-{if((state_val_15823 === (8)))
-{var inst_15771 = (state_15822[(8)]);var inst_15769 = (state_15822[(9)]);var inst_15770 = (state_15822[(10)]);var inst_15803 = (function (){var G__15842 = self__.app;return (cljs.core.deref.cljs$core$IFn$_invoke$arity$1 ? cljs.core.deref.cljs$core$IFn$_invoke$arity$1(G__15842) : cljs.core.deref.call(null,G__15842));
-})();var inst_15804 = cljs.core.constant$keyword$66.cljs$core$IFn$_invoke$arity$1(inst_15803);var inst_15805 = (function (){var old_planets = inst_15804;var expr__15773 = inst_15771;var pred__15772 = cljs.core._EQ_;var ch = inst_15771;var val = inst_15770;var vec__15764 = inst_15769;return ((function (old_planets,expr__15773,pred__15772,ch,val,vec__15764,inst_15771,inst_15769,inst_15770,inst_15803,inst_15804,state_val_15823,c__6495__auto__,universe,context,render,vec__15759,clock,clicks,___$1){
-return (function (p1__15615_SHARP_){return planet_crash.core.update_planets(p1__15615_SHARP_,.3);
+{if((state_val_15934 === (5)))
+{var inst_15887 = (state_15933[(13)]);var inst_15878 = (function (){var G__15952 = self__.app;return (cljs.core.deref.cljs$core$IFn$_invoke$arity$1 ? cljs.core.deref.cljs$core$IFn$_invoke$arity$1(G__15952) : cljs.core.deref.call(null,G__15952));
+})();var inst_15879 = cljs.core.constant$keyword$70.cljs$core$IFn$_invoke$arity$1(inst_15878);var inst_15880 = cljs.core.first(inst_15879);var inst_15881 = (function (){var G__15953 = self__.app;return (cljs.core.deref.cljs$core$IFn$_invoke$arity$1 ? cljs.core.deref.cljs$core$IFn$_invoke$arity$1(G__15953) : cljs.core.deref.call(null,G__15953));
+})();var inst_15882 = cljs.core.constant$keyword$70.cljs$core$IFn$_invoke$arity$1(inst_15881);var inst_15883 = cljs.core.count(inst_15882);var inst_15884 = cljs.core.count(planet_crash.core.colors);var inst_15885 = cljs.core.mod(inst_15883,inst_15884);var inst_15886 = (function (){var G__15954 = self__.app;return (cljs.core.deref.cljs$core$IFn$_invoke$arity$1 ? cljs.core.deref.cljs$core$IFn$_invoke$arity$1(G__15954) : cljs.core.deref.call(null,G__15954));
+})();var inst_15887__$1 = cljs.core.constant$keyword$69.cljs$core$IFn$_invoke$arity$1(inst_15886);var inst_15888 = cljs.core.seq_QMARK_(inst_15887__$1);var state_15933__$1 = (function (){var statearr_15955 = state_15933;(statearr_15955[(13)] = inst_15887__$1);
+(statearr_15955[(14)] = inst_15880);
+(statearr_15955[(15)] = inst_15885);
+return statearr_15955;
+})();if(inst_15888)
+{var statearr_15956_15981 = state_15933__$1;(statearr_15956_15981[(1)] = (8));
+} else
+{var statearr_15957_15982 = state_15933__$1;(statearr_15957_15982[(1)] = (9));
+}
+return cljs.core.constant$keyword$16;
+} else
+{if((state_val_15934 === (10)))
+{var inst_15880 = (state_15933[(14)]);var inst_15869 = (state_15933[(8)]);var inst_15885 = (state_15933[(15)]);var inst_15870 = (state_15933[(10)]);var inst_15871 = (state_15933[(9)]);var inst_15893 = (state_15933[(2)]);var inst_15894 = cljs.core.get.cljs$core$IFn$_invoke$arity$2(inst_15893,cljs.core.constant$keyword$64);var inst_15895 = cljs.core.get.cljs$core$IFn$_invoke$arity$2(inst_15893,cljs.core.constant$keyword$63);var inst_15896 = cljs.core.constant$keyword$71.cljs$core$IFn$_invoke$arity$1(inst_15880);var inst_15897 = cljs.core.constant$keyword$63.cljs$core$IFn$_invoke$arity$1(inst_15880);var inst_15898 = planet_crash.core.orbital_velocity(inst_15870,inst_15896,inst_15897);var inst_15899 = [cljs.core.constant$keyword$71,cljs.core.constant$keyword$72,cljs.core.constant$keyword$64,cljs.core.constant$keyword$63,cljs.core.constant$keyword$73,cljs.core.constant$keyword$74];var inst_15900 = cljs.core.nth.cljs$core$IFn$_invoke$arity$2(planet_crash.core.colors,inst_15885);var inst_15901 = (function (){var G__15958 = self__.app;return (cljs.core.deref.cljs$core$IFn$_invoke$arity$1 ? cljs.core.deref.cljs$core$IFn$_invoke$arity$1(G__15958) : cljs.core.deref.call(null,G__15958));
+})();var inst_15902 = cljs.core.constant$keyword$68.cljs$core$IFn$_invoke$arity$1(inst_15901);var inst_15903 = cljs.core.not(inst_15902);var inst_15904 = [inst_15870,inst_15898,inst_15894,inst_15895,inst_15900,inst_15903];var inst_15905 = cljs.core.PersistentHashMap.fromArrays(inst_15899,inst_15904);var inst_15906 = (function (){var new_planet = inst_15905;var mass = inst_15895;var color_index = inst_15885;var pred__15872 = cljs.core._EQ_;var initial_velocity = inst_15898;var val = inst_15870;var radius = inst_15894;var ch = inst_15871;var expr__15873 = inst_15871;var vec__15864 = inst_15869;var map__15877 = inst_15893;var sun = inst_15880;return ((function (new_planet,mass,color_index,pred__15872,initial_velocity,val,radius,ch,expr__15873,vec__15864,map__15877,sun,inst_15880,inst_15869,inst_15885,inst_15870,inst_15871,inst_15893,inst_15894,inst_15895,inst_15896,inst_15897,inst_15898,inst_15899,inst_15900,inst_15901,inst_15902,inst_15903,inst_15904,inst_15905,state_val_15934,c__6495__auto__,universe,context,render,vec__15859,clock,clicks,___$1){
+return (function (p1__15693_SHARP_){return cljs.core.conj.cljs$core$IFn$_invoke$arity$2(p1__15693_SHARP_,new_planet);
 });
-;})(old_planets,expr__15773,pred__15772,ch,val,vec__15764,inst_15771,inst_15769,inst_15770,inst_15803,inst_15804,state_val_15823,c__6495__auto__,universe,context,render,vec__15759,clock,clicks,___$1))
-})();var inst_15806 = om.core.transact_BANG_.cljs$core$IFn$_invoke$arity$3(self__.app,cljs.core.constant$keyword$66,inst_15805);var inst_15807 = (function (){var G__15843 = self__.app;return (cljs.core.deref.cljs$core$IFn$_invoke$arity$1 ? cljs.core.deref.cljs$core$IFn$_invoke$arity$1(G__15843) : cljs.core.deref.call(null,G__15843));
-})();var inst_15808 = cljs.core.constant$keyword$66.cljs$core$IFn$_invoke$arity$1(inst_15807);var inst_15809 = cljs.core.async.put_BANG_.cljs$core$IFn$_invoke$arity$2(render,inst_15808);var state_15822__$1 = (function (){var statearr_15844 = state_15822;(statearr_15844[(13)] = inst_15806);
-return statearr_15844;
-})();var statearr_15845_15863 = state_15822__$1;(statearr_15845_15863[(2)] = inst_15809);
-(statearr_15845_15863[(1)] = (10));
+;})(new_planet,mass,color_index,pred__15872,initial_velocity,val,radius,ch,expr__15873,vec__15864,map__15877,sun,inst_15880,inst_15869,inst_15885,inst_15870,inst_15871,inst_15893,inst_15894,inst_15895,inst_15896,inst_15897,inst_15898,inst_15899,inst_15900,inst_15901,inst_15902,inst_15903,inst_15904,inst_15905,state_val_15934,c__6495__auto__,universe,context,render,vec__15859,clock,clicks,___$1))
+})();var inst_15907 = om.core.transact_BANG_.cljs$core$IFn$_invoke$arity$3(self__.app,cljs.core.constant$keyword$70,inst_15906);var inst_15908 = (function (){var G__15959 = self__.app;return (cljs.core.deref.cljs$core$IFn$_invoke$arity$1 ? cljs.core.deref.cljs$core$IFn$_invoke$arity$1(G__15959) : cljs.core.deref.call(null,G__15959));
+})();var inst_15909 = cljs.core.constant$keyword$70.cljs$core$IFn$_invoke$arity$1(inst_15908);var inst_15910 = cljs.core.async.put_BANG_.cljs$core$IFn$_invoke$arity$2(render,inst_15909);var state_15933__$1 = (function (){var statearr_15960 = state_15933;(statearr_15960[(16)] = inst_15907);
+return statearr_15960;
+})();var statearr_15961_15983 = state_15933__$1;(statearr_15961_15983[(2)] = inst_15910);
+(statearr_15961_15983[(1)] = (7));
+return cljs.core.constant$keyword$16;
+} else
+{if((state_val_15934 === (8)))
+{var inst_15887 = (state_15933[(13)]);var inst_15890 = cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,inst_15887);var state_15933__$1 = state_15933;var statearr_15962_15984 = state_15933__$1;(statearr_15962_15984[(2)] = inst_15890);
+(statearr_15962_15984[(1)] = (10));
 return cljs.core.constant$keyword$16;
 } else
 {return null;
@@ -815,17 +912,20 @@ return cljs.core.constant$keyword$16;
 }
 }
 }
-});})(c__6495__auto__,universe,context,render,vec__15759,clock,clicks,___$1))
-;return ((function (switch__6480__auto__,c__6495__auto__,universe,context,render,vec__15759,clock,clicks,___$1){
+}
+}
+}
+});})(c__6495__auto__,universe,context,render,vec__15859,clock,clicks,___$1))
+;return ((function (switch__6480__auto__,c__6495__auto__,universe,context,render,vec__15859,clock,clicks,___$1){
 return (function() {
 var state_machine__6481__auto__ = null;
-var state_machine__6481__auto____0 = (function (){var statearr_15849 = [null,null,null,null,null,null,null,null,null,null,null,null,null,null];(statearr_15849[(0)] = state_machine__6481__auto__);
-(statearr_15849[(1)] = (1));
-return statearr_15849;
+var state_machine__6481__auto____0 = (function (){var statearr_15966 = [null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null];(statearr_15966[(0)] = state_machine__6481__auto__);
+(statearr_15966[(1)] = (1));
+return statearr_15966;
 });
-var state_machine__6481__auto____1 = (function (state_15822){while(true){
+var state_machine__6481__auto____1 = (function (state_15933){while(true){
 var ret_value__6482__auto__ = (function (){try{while(true){
-var result__6483__auto__ = switch__6480__auto__(state_15822);if(cljs.core.keyword_identical_QMARK_(result__6483__auto__,cljs.core.constant$keyword$16))
+var result__6483__auto__ = switch__6480__auto__(state_15933);if(cljs.core.keyword_identical_QMARK_(result__6483__auto__,cljs.core.constant$keyword$16))
 {{
 continue;
 }
@@ -834,18 +934,18 @@ continue;
 }
 break;
 }
-}catch (e15850){if((e15850 instanceof Object))
-{var ex__6484__auto__ = e15850;var statearr_15851_15864 = state_15822;(statearr_15851_15864[(5)] = ex__6484__auto__);
-cljs.core.async.impl.ioc_helpers.process_exception(state_15822);
+}catch (e15967){if((e15967 instanceof Object))
+{var ex__6484__auto__ = e15967;var statearr_15968_15985 = state_15933;(statearr_15968_15985[(5)] = ex__6484__auto__);
+cljs.core.async.impl.ioc_helpers.process_exception(state_15933);
 return cljs.core.constant$keyword$16;
 } else
-{throw e15850;
+{throw e15967;
 
 }
 }})();if(cljs.core.keyword_identical_QMARK_(ret_value__6482__auto__,cljs.core.constant$keyword$16))
 {{
-var G__15865 = state_15822;
-state_15822 = G__15865;
+var G__15986 = state_15933;
+state_15933 = G__15986;
 continue;
 }
 } else
@@ -854,12 +954,12 @@ continue;
 break;
 }
 });
-state_machine__6481__auto__ = function(state_15822){
+state_machine__6481__auto__ = function(state_15933){
 switch(arguments.length){
 case 0:
 return state_machine__6481__auto____0.call(this);
 case 1:
-return state_machine__6481__auto____1.call(this,state_15822);
+return state_machine__6481__auto____1.call(this,state_15933);
 }
 throw(new Error('Invalid arity: ' + arguments.length));
 };
@@ -867,32 +967,32 @@ state_machine__6481__auto__.cljs$core$IFn$_invoke$arity$0 = state_machine__6481_
 state_machine__6481__auto__.cljs$core$IFn$_invoke$arity$1 = state_machine__6481__auto____1;
 return state_machine__6481__auto__;
 })()
-;})(switch__6480__auto__,c__6495__auto__,universe,context,render,vec__15759,clock,clicks,___$1))
-})();var state__6497__auto__ = (function (){var statearr_15852 = (function (){return (f__6496__auto__.cljs$core$IFn$_invoke$arity$0 ? f__6496__auto__.cljs$core$IFn$_invoke$arity$0() : f__6496__auto__.call(null));
-})();(statearr_15852[cljs.core.async.impl.ioc_helpers.USER_START_IDX] = c__6495__auto__);
-return statearr_15852;
+;})(switch__6480__auto__,c__6495__auto__,universe,context,render,vec__15859,clock,clicks,___$1))
+})();var state__6497__auto__ = (function (){var statearr_15969 = (function (){return (f__6496__auto__.cljs$core$IFn$_invoke$arity$0 ? f__6496__auto__.cljs$core$IFn$_invoke$arity$0() : f__6496__auto__.call(null));
+})();(statearr_15969[cljs.core.async.impl.ioc_helpers.USER_START_IDX] = c__6495__auto__);
+return statearr_15969;
 })();return cljs.core.async.impl.ioc_helpers.run_state_machine_wrapped(state__6497__auto__);
-});})(c__6495__auto__,universe,context,render,vec__15759,clock,clicks,___$1))
+});})(c__6495__auto__,universe,context,render,vec__15859,clock,clicks,___$1))
 );
 return c__6495__auto__;
 });
-planet_crash.core.t15736.prototype.om$core$IInitState$ = true;
-planet_crash.core.t15736.prototype.om$core$IInitState$init_state$arity$1 = (function (_){var self__ = this;
-var ___$1 = this;var vec__15853 = planet_crash.core.clock((30));var clk = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__15853,(0),null);var start = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__15853,(1),null);var stop = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__15853,(2),null);var c = vec__15853;var running = cljs.core.constant$keyword$65.cljs$core$IFn$_invoke$arity$1(self__.app);if(cljs.core.not(running))
+planet_crash.core.t15833.prototype.om$core$IInitState$ = true;
+planet_crash.core.t15833.prototype.om$core$IInitState$init_state$arity$1 = (function (_){var self__ = this;
+var ___$1 = this;var vec__15970 = planet_crash.core.clock((30));var clk = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__15970,(0),null);var start = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__15970,(1),null);var stop = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__15970,(2),null);var c = vec__15970;var running = cljs.core.constant$keyword$68.cljs$core$IFn$_invoke$arity$1(self__.app);if(cljs.core.not(running))
 {cljs.core.async.put_BANG_.cljs$core$IFn$_invoke$arity$2(stop,true);
 } else
 {}
-return new cljs.core.PersistentArrayMap(null, 1, [cljs.core.constant$keyword$73,c], null);
+return new cljs.core.PersistentArrayMap(null, 1, [cljs.core.constant$keyword$75,c], null);
 });
-planet_crash.core.t15736.prototype.cljs$core$IMeta$_meta$arity$1 = (function (_15738){var self__ = this;
-var _15738__$1 = this;return self__.meta15737;
+planet_crash.core.t15833.prototype.cljs$core$IMeta$_meta$arity$1 = (function (_15835){var self__ = this;
+var _15835__$1 = this;return self__.meta15834;
 });
-planet_crash.core.t15736.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = (function (_15738,meta15737__$1){var self__ = this;
-var _15738__$1 = this;return (new planet_crash.core.t15736(self__.owner,self__.app,self__.main,meta15737__$1));
+planet_crash.core.t15833.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = (function (_15835,meta15834__$1){var self__ = this;
+var _15835__$1 = this;return (new planet_crash.core.t15833(self__.owner,self__.app,self__.main,meta15834__$1));
 });
-planet_crash.core.__GT_t15736 = (function __GT_t15736(owner__$1,app__$1,main__$1,meta15737){return (new planet_crash.core.t15736(owner__$1,app__$1,main__$1,meta15737));
+planet_crash.core.__GT_t15833 = (function __GT_t15833(owner__$1,app__$1,main__$1,meta15834){return (new planet_crash.core.t15833(owner__$1,app__$1,main__$1,meta15834));
 });
 }
-return (new planet_crash.core.t15736(owner,app,main,null));
+return (new planet_crash.core.t15833(owner,app,main,null));
 }),planet_crash.core.app_state,new cljs.core.PersistentArrayMap(null, 1, [cljs.core.constant$keyword$62,document.getElementById("app")], null));
 });
