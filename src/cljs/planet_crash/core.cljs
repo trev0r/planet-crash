@@ -244,21 +244,26 @@
                  )
                ))))
 
-(defn planet-selecter [selected-planet owner]
+(defn mass-selecter [selected-mass owner]
   (reify
     om/IRender
     (render [_]
-      (apply dom/ul nil
-             (for [p preset-sizes]
-               (dom/li nil
-                 (dom/a #js {:onClick #(om/transact! selected-planet
-                                                          (fn [_] p))}
+      (dom/div #js {:id "mass-selecter"}
+               (apply dom/ul #js {:id "masses"
+                                  :className "nav nav-pills nav-stacked"}
+                      (for [p preset-sizes]
+                        (dom/li #js {:className (if (= p selected-mass) "active" nil)}
+                                (dom/a #js {:href "#"
+                                            :className "mass-sel"
+                                            :onClick #(om/transact! selected-mass
+                                                                    (fn [_] p))}
 
-                        (:title p)
-                        (str (:mass p)  "x")
-                        ))))
+                                       (:title p)
+                                       (dom/span #js {:className "badge pull-right"}
+                                                 (str (:mass p)  "x"))
+                                       ))))
 
-      )))
+      ))))
 
 
 (defn main []
@@ -325,27 +330,21 @@
                                      :height (app :height)
                                      :ref "universe-ref"})
 
-                    (om/build planet-selecter (:selected-planet app))
-                    ;(dom/button #js {:onClick (fn [_]
-                    ;                            (do
-                    ;                              (om/transact! app :selected-mass #(mod (+ % 100) 400))))}
-                    ;                 (str (nth preset-sizes (:selected-preset app))))
-                    (dom/div nil
-                             (dom/label nil "Click to add a planet ")
-                             (dom/button #js {:onClick (fn [_]
-                                                         (do
-                                                           (put! stop true)
-                                                           (om/update! app :running? false)
-                                                           (om/transact! app :planets (fn [ps] (into [] (map #(assoc % :editable? true) ps)))
+                    (dom/div #js {:id "sidebar"}
+                             (dom/h1 #js {:id "title"} "Planet Crash")
+                             (dom/div nil "Click on the type of body to add next:")
+                             (om/build mass-selecter (:selected-planet app))
+                             (dom/div #js {:id "control"}
+                                      (dom/button #js {:className "btn btn-default"
+                                                       :onClick (fn [_]
+                                                                  (let [control (if (:running? @app) stop start)]
+                                                                    (do
+                                                                      (put! control true)
+                                                                      (om/transact! app :running? not)
+                                                                      ;(om/transact! app :planets (fn [ps] (into [] (map #(assoc % :editable? (not running?)) ps)))
                                                                          )))
-                                              } "Pause")
-                             (dom/button #js {:onClick (fn [_]
-                                                         (do
-                                                           (put! start true)
-                                                           (om/update! app :running? true)
-                                                           (om/transact! app :planets (fn [ps] (into [] (map #(assoc % :editable? false) ps)))
-                                                                         )))
-                                              } "Play"))
+                                                       } (dom/span #js {:className (if (:running? app) "fa fa-pause" "fa fa-play")}))
+                                      ))
                     (comment (dom/div nil
                              (apply dom/div nil
                                     (om/build-all planet-editor (:planets app))
