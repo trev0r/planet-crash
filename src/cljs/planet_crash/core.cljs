@@ -1,52 +1,50 @@
 (ns planet-crash.core
   (:require [om.core :as om :include-macros true]
             [om.dom :as dom :include-macros true]
-            [cljs.reader :as reader]
+
             [cljs.core.async :refer [<! >! alts! put! take! chan timeout]]
-            [goog.events :as events])
+            [goog.events :as events]
+            [planet-crash.clock :refer [clock]]
+            [planet-crash.components :refer [mass-selecter]]
+            [planet-crash.physics :as physics]
+            [planet-crash.render :refer [render-chan]]
+            )
   (:require-macros [cljs.core.async.macros :refer [go go-loop]]
-                   [planet-crash.util :refer [combine-with]])
+                   )
   (:import [goog.events EventType]))
 
 (defonce colors ["#F97A77" "#6699CC" "#99CC99" "#F99157" "#66CCCC" "#CC99CC" "#D27B53" "#A0A093" "#F2F0EC" "#00FFFF" "#E8E6DF"])
-
-(defonce preset-sizes [{:mass 1     :radius 15  :title "Earth"}
-                       {:mass 5     :radius 20  :title "Super-Earth"}
-                       {:mass 15    :radius 25  :title "Ice giant"}
-                       {:mass 300   :radius 40  :title "Giant planet"}
-                       {:mass 5000  :radius 60  :title "Brown dwarf"}
-                       {:mass 30000 :radius 100 :title "Dwarf starf"}])
 
 (defonce app-state (atom {
                           :width 1280
                           :height 700
                           :running? true
-                          :selected-planet (first preset-sizes)
+                          :selected-planet {}
                           :planets [
-                                ;sun
-                                {:position [640 350]
-                                 :velocity [0 0]
-                                 :radius 30
-                                 :mass 333000
-                                 :color "#FFCC66"
-                                 :editable? false
-                                 }
-                                {:position [640 150]
-                                 :velocity [40.8 0]
-                                 :radius 10
-                                 :mass 50
-                                 :color (first colors)
-                                 :editable? false
-                                 }
-                                {:position [640 50]
-                                 :velocity [33.3 0]
-                                 :radius 15
-                                 :mass 1
-                                 :color (second colors)
-                                 :editable? false
-                                 }
-                                ]
-                      }))
+                                        ;sun
+                                    {:position [640 350]
+                                     :velocity [0 0]
+                                     :radius 30
+                                     :mass 333000
+                                     :color "#FFCC66"
+                                     :editable? false
+                                     }
+                                    {:position [640 150]
+                                     :velocity [40.8 0]
+                                     :radius 10
+                                     :mass 50
+                                     :color (first colors)
+                                     :editable? false
+                                     }
+                                    {:position [640 50]
+                                     :velocity [33.3 0]
+                                     :radius 15
+                                     :mass 1
+                                     :color (second colors)
+                                     :editable? false
+                                     }
+                                    ]
+                          }))
 (enable-console-print!)
 
 (defn events->chan
@@ -55,216 +53,32 @@
   optional argument."
   ([el event-type] (events->chan el event-type (chan)))
   ([el event-type c]
-   (events/listen el event-type
-     (fn [e] (put! c e)))
-   c))
+     (events/listen el event-type
+                    (fn [e] (put! c e)))
+     c
+     ))
 
 (defn mouse-loc->vec
   "Given a Google Closure normalized DOM mouse event return the
   mouse x and y position as a two element vector."
   [e]
-  [(.-clientX e) (.-clientY e)])
-
-; Rendering
-(defn set-background! [context]
-  "Given a canvas context, set up the background. Currently all hard
-   coded to the 1280 x 700 screen size. It looks like ooouter spaaaace"
-  (let [gradient (.createRadialGradient context 640 350 5 640 350 640)]
-    (do
-      (.addColorStop gradient 0 "#666666")
-      (.addColorStop gradient 1 "#212121")
-      (set! (.-fillStyle context) gradient)
-      (.fillRect context 0 0 1280 700)
-      )))
-
-(defn draw! [context {:keys [position radius color]}]
-  "Given a canvas context and a map of planet info, draw the planet.
-   It's just a circle."
-  (let [[x y] position]
-    (do
-      (.beginPath context)
-      (.arc context (.floor js/Math x) (.floor js/Math y) radius 0 (* 2 (.-PI js/Math)) false)
-      (set! (.-fillStyle context) color)
-      (.fill context)
-      (set! (.-lineWidth context) 0)
-      (set! (.-strokeStyle context) color)
-      (.stroke context)
-      )))
-
-(defn render-chan [context]
-  "Given a canvas context, create a channel that to render the planet animations."
-  (let [c (chan)]
-    (go-loop [_]
-      (let [planets (<! c)]
-        (set-background! context)
-        (doseq [p planets]
-          (draw! context p)
-         )
-        )
-      (recur)
-      )
-    c
-    ))
-
-(defn clock
-  "Create a channel which emits the current time every interval milliseconds.
-  Any value written to start/stop will start/stop the messages. Taken from an
-  om cookbook."
-  [interval]
-  (let [out (chan)
-        start (chan)
-        stop (chan)]
-    (go-loop [running? true]
-             (let [t (timeout interval)
-                   [_ ch] (alts! [stop t start])]
-               (when running?
-                  (let [now (.now (.-performance js/window))]
-                    (>! out now)))
-               (condp = ch
-                 stop (recur false)
-                 t (recur running?)
-                 start (recur true))))
-    [out start stop]))
-
-; Maths / Physics
-(comment
-  I stole these functions and the combine-with macro from somewhere online.
-  It seems likes this is a performance bottleneck currently but I thought it
-  would be nice since it allows easy vector math. Might take it out and just
-  hard code the math.
-  )
-(defn add
-  ([& args] (reduce (fn [A B] (combine-with A B clojure.core/+ add)) args)))
-(defn sub
-  ([& args] (if (= (count args) 1)
-              (combine-with 0 (first args) clojure.core/- sub)
-              (reduce (fn [A B] (combine-with A B clojure.core/- sub)) args))))
-(defn mul
-  ([& args] (reduce (fn [A B] (combine-with A B clojure.core/* mul)) args)))
-
-(defn power [xs pow] (map (fn [x] (.pow js/Math x pow)) xs))
-
-(defn acceleration [p1 p2 m]
-  "Given two position vector and the mass of the second one, calculate the
-   gravitational acceleration between them."
-  (let [p (sub p1 p2)
-        a-mag (- (.pow js/Math
-                       (reduce + (power p 2))
-                       -1.5))
-        ]
-    (if (= p1 p2)
-      (mul 0 p)
-      (mul (* m a-mag) p)
-      )
-    )
+  [(.-clientX e) (.-clientY e)]
   )
 
-(defn agg-acceleration [p0 ps]
-  "Given a planet and a list of other planets, calculate the aggregate acceleration
-  on the planet caused by the others."
-  (let [accs (map (fn [{:keys [position mass]}] (acceleration p0 position mass)) ps)]
-    (apply add accs)
-    )
-  )
-
-(defn orbital-velocity [c1 c2 m]
-  (let [[x y] (sub c1 c2)
-        theta (.atan2 js/Math y x)
-        r     (.pow js/Math (+ (* x x)  (* y y)) .5)
-        v-mag (.pow js/Math (/ m r) .5)]
-    [(* (- v-mag) (.sin js/Math theta)) (* v-mag (.cos js/Math theta))]
+(defn color [num-planets]
+  (let [color-index (mod num-planets (count colors))]
+    (nth colors color-index)
     ))
 
-(defn update-planets [planets delta-t]
-  "Given a list of planets and the amount of time that has passed, update the planets'
-  position and velocity."
-  (let [vs (map :velocity planets)
-        ps (map :position planets)
-        as (map (fn [p] (agg-acceleration p planets)) ps)
-        vs-delta (map (fn [a] (mul a delta-t)) as)
-        vs-new (map add vs vs-delta)
-        ps-delta (map (fn [v] (mul v delta-t)) vs-new)
-        ps-new (map add ps ps-delta)
-        ]
-    (into [] (map (fn [planet v p] (assoc planet :velocity (into [] v) :position (into [] p))) planets vs-new ps-new))
+(defn new-planet [target position mass radius color]
+  (let [velocity (physics/orbital-velocity position (:position target) (:mass target))]
+    {:position position
+     :velocity velocity
+     :mass mass
+     :radius radius
+     :color color
+     }
     ))
-
-;; Inspection
-(defn pr-map-cursor [cursor]
-  (pr-str
-   (into cljs.core.PersistentHashMap.EMPTY
-         (om/value cursor))))
-
-(defn handle-change [e cursor owner key]
-  (let [value (.. e -target -value)]
-    (try
-      (let [data (reader/read-string value)]
-        (do
-          (om/transact! cursor key (fn [_] data))
-          (om/set-state! owner key value))
-        )
-      (catch :default ex
-        (om/set-state! owner key value)))))
-
-(defn planet-editor [planet owner]
-  (reify
-    om/IRender
-    (render [_]
-      (dom/div nil
-               (if (:editable? planet)
-                 (dom/div nil
-                        (dom/code #js {:className "inspector"} "{:mass ")
-                        (dom/input #js {:className "edit"
-                                        :value (:mass planet)
-                                        :size 10
-                                        :onChange #(handle-change % planet owner :mass)
-                                        })
-                        (dom/code #js {:className "inspector"} ", :radius ")
-                        (dom/input #js {:className "edit"
-                                        :value (:radius planet)
-                                        :size 40
-                                        :onChange #(handle-change % planet owner :radius)
-                                        })
-                        (dom/code #js {:className "inspector"} ", :position ")
-                        (dom/input #js {:className "edit"
-                                        :value (om/value (:position planet))
-                                        :size 40
-                                        :onChange #(handle-change % planet owner :position)
-                                        })
-
-                        (dom/code #js {:className "inspector"} ", :velocity ")
-                        (dom/input #js {:className "edit"
-                                        :value (om/value (:velocity planet))
-                                        :size 45
-                                        :onChange #(handle-change % planet owner :velocity)
-                                        })
-                        (dom/code #js {:className "inspector"} " }")
-                        )
-                 (dom/code nil (pr-map-cursor planet))
-                 )
-               ))))
-
-(defn mass-selecter [selected-mass owner]
-  (reify
-    om/IRender
-    (render [_]
-      (dom/div #js {:id "mass-selecter"}
-               (apply dom/ul #js {:id "masses"
-                                  :className "nav nav-pills nav-stacked"}
-                      (for [p preset-sizes]
-                        (dom/li #js {:className (if (= p selected-mass) "active" nil)}
-                                (dom/a #js {:href "#"
-                                            :className "mass-sel"
-                                            :onClick #(om/transact! selected-mass
-                                                                    (fn [_] p))}
-
-                                       (:title p)
-                                       (dom/span #js {:className "badge pull-right"}
-                                                 (str (:mass p)  "x"))
-                                       ))))
-
-      ))))
-
 
 (defn main []
   "Wire everything, create all necessary channels, pretty much anything interesting happens here.
@@ -279,13 +93,11 @@
            (when (not running)
              (put! stop true))
            {:clock c}
-           )
-         )
-
+           ))
        om/IDidMount
        (did-mount [_]
          (let [universe (om/get-node owner "universe-ref")
-               context (.getContext universe "2d")
+               context (.getContext (om/get-node owner "universe-ref") "2d")
                render  (render-chan context)
                [clock] (om/get-state owner :clock)
                clicks (events->chan universe EventType.CLICK
@@ -297,23 +109,16 @@
                (condp = ch
                  ; Add a new planet when we get a click on the canvas.
                  clicks (let [sun (first (:planets @app)) ;gross
-                              color-index (mod (count (:planets @app)) (count colors))
                               {:keys [mass radius]} (:selected-planet @app)
-                              initial-velocity (orbital-velocity val (:position sun) (:mass sun))
-                              new-planet {:position val
-                                          :velocity initial-velocity
-                                          :radius radius
-                                          :mass mass
-                                          :color (nth colors color-index)
-                                          :editable? (not (:running? @app))
-                                          }
+                              color (color (count (:planets @app)))
+                              planet (new-planet sun val mass radius color)
                               ]
-                          (om/transact! app :planets #(conj % new-planet))
+                          (om/transact! app :planets #(conj % planet))
                           (put! render (:planets @app))
                           )
                  ; Update the planets on every clock tick.
                  clock  (let [old-planets (:planets @app)
-                              update-fn #(update-planets % .3)]
+                              update-fn #(physics/update-planets % .3)]
                           (om/transact! app :planets update-fn)
                           (put! render (:planets @app))
                           )
@@ -341,17 +146,8 @@
                                                                     (do
                                                                       (put! control true)
                                                                       (om/transact! app :running? not)
-                                                                      ;(om/transact! app :planets (fn [ps] (into [] (map #(assoc % :editable? (not running?)) ps)))
-                                                                         )))
+                                                                      )))
                                                        } (dom/span #js {:className (if (:running? app) "fa fa-pause" "fa fa-play")}))
-                                      ))
-                    (comment (dom/div nil
-                             (apply dom/div nil
-                                    (om/build-all planet-editor (:planets app))
-                             )))
-                  )
-           )
-         )
-       ))
+                                      )))))))
    app-state
    {:target (. js/document (getElementById "app"))}))
